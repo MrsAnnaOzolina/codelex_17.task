@@ -5,41 +5,33 @@ import i18next from "i18next";
 
 
 function NavList() {
-  let activeStyle= {
+  let activeStyle = {
     textDecoration: "underline",
   };
 
   const { i18n, t } = useTranslation(["common"]);
 
-	useEffect(() => {
-		if (localStorage.getItem("i18nextLng")?.length! > 2) {
-			i18next.changeLanguage("en");
-		}
-	}, []);
+  useEffect(() => {
+    if (localStorage.getItem("i18nextLng")?.length! > 2) {
+      i18next.changeLanguage("en");
+    }
+  }, []);
 
-	const handleLanguageChange = (e) => {
-		i18n.changeLanguage(e.target.value);
-	};
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
 
   return (
-    
-<div className="header header-fixed u-unselectable header-animated">
-<div 
-className="header-brand"
->
-    <div className="nav-item no-hover">
-    <a href="/" className="title"> <h6>{t("rockpaparscissors")} </h6> </a>
-    </div>
-    {/* <div class="nav-item">
-        <a href="#">
-            <span class="icon">
-                <i class="fab fa-wrapper fa-github"></i>
-            </span>
-        </a>
-    </div> */}
-   
-    <div className="nav-item" >
-        <span> <NavLink
+
+    <div className="header header-fixed u-unselectable header-animated">
+      <div
+        className="header-brand"
+      >
+        <div className="nav-item no-hover">
+          <a href="/" className="title"> <h6>{t("rockpaparscissors")} </h6> </a>
+        </div>
+        <div className="nav-item" >
+          <span> <NavLink
             to=""
             style={({ isActive }) =>
               isActive ? activeStyle : undefined
@@ -48,38 +40,38 @@ className="header-brand"
             {t("home")}
           </NavLink>
           </span>
-        <span><NavLink
+          <span><NavLink
             to="game"
             style={({ isActive }) =>
-            isActive ? activeStyle : undefined
-          }
+              isActive ? activeStyle : undefined
+            }
           >
-             {t("game")}
+            {t("game")}
           </NavLink></span>
-        <span><NavLink
+          <span><NavLink
             to="statistic"
             style={({ isActive }) =>
-            isActive ? activeStyle : undefined
-          }
+              isActive ? activeStyle : undefined
+            }
           >
-             {t("statistic")}
+            {t("statistic")}
           </NavLink></span>
-    </div>
-    <div 
-    className="col-xs-9 level-item input-control languageBar"
-    >
-          <select 
-          className="input--sm" 
-          value={localStorage.getItem("i18nextLng")!}
-          onChange={handleLanguageChange} 
+        </div>
+        <div
+          className="col-xs-9 level-item input-control languageBar"
+        >
+          <select
+            className="input--sm"
+            value={localStorage.getItem("i18nextLng")!}
+            onChange={handleLanguageChange}
           >
             <option value="en">English</option>
             <option value="lv">Latvian</option>
             <option value="ge">German</option>
           </select>
+        </div>
+      </div>
     </div>
-    </div>
-</div>
   );
 }
 export default NavList

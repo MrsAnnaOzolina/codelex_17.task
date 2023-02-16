@@ -1,8 +1,7 @@
 import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation, QueryClient, useQueryClient } from "@tanstack/react-query"
-import StatisticDataImport from "./statisticData"
-// import StatisticDataSearch from "./statisticDataSeacch"
+import StatisticDataImport from "./statisticData";
 import { useState } from 'react';
 import axios from 'axios';
 type Data = {
@@ -20,47 +19,33 @@ function Statistic() {
 
   const queryClient = useQueryClient();
 
-  // const { data, isError, isLoading } = useQuery<Data[]>({
-  //   queryKey: ["data"],
-  //   queryFn: StatisticDataImport
-  // })
-
-  const {
-    isLoading,
-    error,
-    data,
-  } = useQuery<Data[]>(['data'], () => StatisticDataImport(),
-
-    {
-
-    }
-  );
-
+  const { data, isError, isLoading } = useQuery<Data[]>({
+    queryKey: ["data"],
+    queryFn: StatisticDataImport
+  })
 
   const searchName = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    if(nameValue.trim() == " "){
-      
-    } 
+    if (nameValue.trim() == " ") {
+      queryClient.invalidateQueries(["data"]);
+    }
     else {
       setShowSearch(true);
       setHideData(false);
-    await axios.get('http://localhost:3004/search/' + nameValue).then(res => setSearchData(res.data.map(data => {
-      return <tr key={data.id}>
-        <th>{data.id}</th>
-        <th>{data.player_name}</th>
-        <th>{data.points}</th>
-        <th>{data.computer_Points}</th>
-      </tr>
-    })
-    )
-    )
-  }
+      await axios.get('http://localhost:3004/search/' + nameValue).then(res => setSearchData(res.data.map(data => {
+        return <tr key={data.id}>
+          <th>{data.id}</th>
+          <th>{data.player_name}</th>
+          <th>{data.points}</th>
+          <th>{data.computer_Points}</th>
+        </tr>
+      })))
+    }
   }
   if (isLoading) {
     return <div>Loading...</div>
   }
-  if (error || !data) {
+  if (isError || !data) {
     return <div>Error!</div>
   }
   return (
@@ -68,7 +53,11 @@ function Statistic() {
       <div className="hero-body">
         <div className="content">
           <form onSubmit={searchName}>
-            <label style={{ marginTop: "20px" }} > {t("seachName")}</label>
+            <label
+              style={{ marginTop: "20px" }}
+            >
+              {t("seachName")}
+            </label>
             <input
               type="text"
               placeholder="search"
@@ -105,7 +94,6 @@ function Statistic() {
                 })
                 }
               </tbody>
-
             }
             {showSearch &&
               <tbody>

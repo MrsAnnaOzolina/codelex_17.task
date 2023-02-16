@@ -12,12 +12,8 @@ i18n.use(Backend)
                 loadPath: "/src/assets/i18n/{{ns}}/{{lng}}.json",
             },
 		fallbackLng: "en",
-		// disabled in production
 		debug: false,
-		// can have multiple namespaces, in case you want to divide a huge
-		// translation into smaller pieces and load them on demand
 		ns: ["common", "home", "statistic"],
-
 		interpolation: {
 			espaceValue: false,
 			formatSeparator: ",",
@@ -26,5 +22,4 @@ i18n.use(Backend)
 			wait: true,
 		},
 	});
-
 export default i18n;

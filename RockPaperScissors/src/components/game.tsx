@@ -4,10 +4,11 @@ import { FaRegHandPaper, FaRegHandScissors, FaRegHandRock } from "react-icons/fa
 import { SetStateAction, useState } from "react"
 import axios from "axios";
 
-
-
-// import Home, {playerName} from "./home"
-
+type Actions = { 
+    rock: string,
+    paper: string,
+    scissors: string
+}
 
 const actions = {
     rock: "scissors",
@@ -18,11 +19,10 @@ const actions = {
 function randomAction() {
     const keys = Object.keys(actions);
     const index = Math.floor(Math.random() * keys.length);
-
     return keys[index];
 }
 
-function calculateWinner(action1, action2) {
+function calculateWinner(action1:String, action2:String) {
     if (action1 === action2) {
         return 0;
     } else if (actions[action1].includes(action2)) {
@@ -92,18 +92,13 @@ function Game() {
     const [showPlayAgain, setPlayAgain] = useState(false);
     const [showResult, setShowResult] = useState("");
 
-
-
-
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         setShowGameField(true);
         setShowNameInput(false);
-
-
     }
 
-    const onActionSelected = (selectedAction: SetStateAction<string>):void => {
+    const onActionSelected = (selectedAction: SetStateAction<string>): void => {
         const newComputerAction = randomAction();
 
         setPlayerAction(selectedAction);
