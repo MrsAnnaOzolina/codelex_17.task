@@ -1,4 +1,3 @@
-import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { FaRegHandPaper, FaRegHandScissors, FaRegHandRock } from "react-icons/fa"
 import { SetStateAction, useState } from "react"
@@ -22,11 +21,13 @@ function randomAction() {
     return keys[index];
 }
 
-function calculateWinner(action1:String, action2:String) {
+function calculateWinner(action1: number | SetStateAction<string>, action2: string ) {
     if (action1 === action2) {
         return 0;
+        //@ts-ignore
     } else if (actions[action1].includes(action2)) {
         return -1;
+        //@ts-ignore
     } else if (actions[action2].includes(action1)) {
         return 1;
     }
@@ -34,7 +35,7 @@ function calculateWinner(action1:String, action2:String) {
     // This should never really happen
     return null;
 }
-
+//@ts-ignore
 function ActionIcon({ action, ...props }) {
     const icons = {
         rock: FaRegHandRock,
@@ -42,13 +43,12 @@ function ActionIcon({ action, ...props }) {
         scissors: FaRegHandScissors,
 
     };
+    //@ts-ignore
     const Icon = icons[action];
     return <Icon {...props} />;
 }
-
-function ActionButton({ action = "rock",
-    onActionSelected
-}) {
+// @ts-ignore
+function ActionButton({ action = "rock", onActionSelected }) {
     return (
         <button
             className='outline btn-transparent'
@@ -79,7 +79,7 @@ function Player({ name = "Player", score = 0, action = "rock" }) {
 function Game() {
 
     const { t } = useTranslation(["game"]);
-    const [playerAction, setPlayerAction] = useState("");
+    const [playerAction, setPlayerAction] = useState<(SetStateAction<string>)>(" ");
     const [computerAction, setComputerAction] = useState("");
 
     const [playerScore, setPlayerScore] = useState(0);
@@ -98,7 +98,7 @@ function Game() {
         setShowNameInput(false);
     }
 
-    const onActionSelected = (selectedAction: String): void => {
+    const onActionSelected = (selectedAction: string):void => {
         const newComputerAction = randomAction();
 
         setPlayerAction(selectedAction);
