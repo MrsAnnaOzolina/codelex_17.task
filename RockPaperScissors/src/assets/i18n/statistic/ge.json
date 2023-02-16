@@ -3,5 +3,7 @@
     "id": "No.", 
     "name": "Spielername",
     "points": "Punkte", 
-    "computerPoints": "Computerpunkte"
+    "computerPoints": "Computerpunkte",
+    "seachName": "Geben Sie Ihren Namen ein und sehen Sie Ihre Punkte:",
+    "apply":"Anwenden"
 }

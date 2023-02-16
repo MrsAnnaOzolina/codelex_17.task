@@ -3,5 +3,7 @@
     "id": "Nr.", 
     "name": "Spēlētāja vārds",
     "points": "Punkti", 
-    "computerPoints": "Datora punkti"
+    "computerPoints": "Datora punkti",
+    "seachName": "Meklē savu vārdu:",
+    "apply": "Meklēt"
 }
