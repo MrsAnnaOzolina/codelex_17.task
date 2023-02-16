@@ -34,6 +34,14 @@ app.get("/statistic", (req: Request, res: Response) => {
   });
 });
 
+app.get("/search/:nameValue", (req: Request, res: Response) => {
+  const name = req.params.nameValue
+  con.query(`SELECT * FROM gameData WHERE player_name = "${name}"`, (err, data)=>{
+    if(err) throw err;
+    res.send(data);
+  });
+});
+
 app.post('/statistic', (req: Request, res: Response) =>{
 
   const insert = "INSERT INTO gameData (`player_name`,`points`,`computer_Points`) VALUES (?) " ;
