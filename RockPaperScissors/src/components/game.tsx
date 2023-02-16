@@ -98,7 +98,7 @@ function Game() {
         setShowNameInput(false);
     }
 
-    const onActionSelected = (selectedAction: SetStateAction<string>): void => {
+    const onActionSelected = (selectedAction: String): void => {
         const newComputerAction = randomAction();
 
         setPlayerAction(selectedAction);
