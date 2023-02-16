@@ -26,18 +26,18 @@ function Statistic() {
 
   const searchName = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    if (nameValue.trim() == " ") {
-      queryClient.invalidateQueries(["data"]);
-    }
-    else {
+    if (nameValue.length === 0) {
+      setHideData(true);
+      setShowSearch(false);
+      }  else {
       setShowSearch(true);
       setHideData(false);
-      await axios.get('http://localhost:3004/search/' + nameValue).then(res => setSearchData(res.data.map(data => {
-        return <tr key={data.id}>
-          <th>{data.id}</th>
-          <th>{data.player_name}</th>
-          <th>{data.points}</th>
-          <th>{data.computer_Points}</th>
+      await axios.get('http://localhost:3004/search/'+ nameValue).then(res => setSearchData(res.data.map(mydata => {
+        return <tr key={mydata.id}>
+          <th>{mydata.id}</th>
+          <th>{mydata.player_name}</th>
+          <th>{mydata.points}</th>
+          <th>{mydata.computer_Points}</th>
         </tr>
       })))
     }

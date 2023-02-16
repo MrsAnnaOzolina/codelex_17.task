@@ -35,7 +35,7 @@ function Home() {
           <div><button className='outline btn-transparent' onClick={gameRules} > {t("gameRules")}</button></div>
           <div
           > <img
-              style={{ display: showRules ? 'block' : 'none', width: "900px", position: "absolute", top: "5rem", left: "20rem" }}
+              style={{ display: showRules ? 'block' : 'none', width: "90vw", position: "absolute", top: "5rem", left: "5rem" }}
               src="./src/assets/Rules.png" alt="rules"
               onClick={() => setShowRules(false)}
             /></div>
