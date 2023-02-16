@@ -1,0 +1,22 @@
+{
+    "player": "Spēlētājs",
+    "wins": "uzvarēja",
+    "addYourName": "Ieraksti savu vārdu, lai sāktu spēli",
+    "startGame": "Spēlēt!",
+    "computer": "Dators",
+    "scores": "Punkti:",
+    "finishGame": "Beigt spēli un saglabāt punktus! ",
+    "playAgain": "Spēlēt vēlreiz! ",
+    "startAgain": "Sākt vēlreiz!",
+    "yourName": "Spēlētāja vārds",
+    "youWon": "Tu vinnēji - !",
+    "computerWon": "Dators vinnēja!",
+    "youLoose": "Tu zaudē!",
+    "youWin": "Tu vinnē!",
+    "itIsTie": "Neizšķirts!",
+    "status":{
+    "-1": "Tu uzvarējji!",
+    "0": "Tu zaudēji", 
+    "1": "Neizšķirts"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "gameScores": "Game statistic:",
+    "id": "No.", 
+    "name": "Player name",
+    "points": "Points", 
+    "computerPoints": "Computer points"
+}

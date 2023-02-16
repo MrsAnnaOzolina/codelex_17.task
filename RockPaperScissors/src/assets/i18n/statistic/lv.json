@@ -1,0 +1,7 @@
+{
+    "gameScores": "Spēļu statistika: ",
+    "id": "Nr.", 
+    "name": "Spēlētāja vārds",
+    "points": "Punkti", 
+    "computerPoints": "Datora punkti"
+}

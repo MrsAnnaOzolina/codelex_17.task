@@ -1,0 +1,22 @@
+{
+    "player": "Player",
+    "wins": "wins",
+    "addYourName": "Add your name to start game:",
+    "startGame": "Play",
+    "computer": "Computer",
+    "finishGame": "Finish Game and save your score",
+    "playAgain": "Play again! ",
+    "scores": "Scores:",
+    "startAgain": "Start again!",
+    "yourName": "Your name",
+    "youWon": "You won!",
+    "computerWon": "Computer Won!",
+    "youWin": "You win!",
+    "youLoose": "You loose!",
+    "itIsTie": "It's a Tie!",
+    "status":{
+    "-1": "You win!",
+    "0": "You lose! ", 
+    "1": "It's a Tie! "
+    }
+}

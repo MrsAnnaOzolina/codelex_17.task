@@ -1,0 +1,24 @@
+{
+    "player": "Spieler",
+    "wins": "Gewinnt",
+    "addYourName": "Fügen Sie Ihren Namen hinzu, um ein Spiel zu starten:",
+    "startGame": "Spiel! ",
+    "computer": "Computer",
+    "finishGame": "Spiel beenden!",
+    "playAgain": "Nochmal abspielen! ",
+    "startAgain": "Fang nochmal an!",
+    "computerWon": "Der Computer hat gewonnen!",
+    "scores": "Punkte:",
+    "yourName": "Spielername",
+    "youWon": "Du hast gewonnen!",
+    "youLoose": "Du verlierst!",
+
+    "youWin": "Du gewinnst!",
+    "itIsTie": "Es ist eine Krawatte!",
+    "status":{
+        "-1": "Du gewinnst!",
+        "0": "Du verlierst! ", 
+        "1": "Es ist ein Unentschieden! "
+    }
+   
+}

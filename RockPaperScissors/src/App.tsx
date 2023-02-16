@@ -1,13 +1,33 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, Suspense } from 'react'
+import NavList from './components/NavList';
+import { Routes, Route } from "react-router-dom";
+import Game from "./components/game"
+import Home from './components/home'
+import Statistic from './components/statistic';
+
+
 
 function App() {
 
 
   return (
     <div>
-    
-    </div>
+      <Suspense fallback={null}>
+    <NavList/>
+   <Routes>
+       <Route path="/" 
+        element={<Home /> }
+       />
+       <Route  path="game/" 
+        element={<Game />}
+        />
+      
+       <Route  path="statistic/" 
+        element={<Statistic />} 
+       />
+   </Routes>
+ </Suspense>
+   </div>
   )
 }
 
